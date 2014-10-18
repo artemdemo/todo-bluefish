@@ -1,1 +1,31 @@
-/* Empty. Add your own CSS if you like */
+
+/*---------------- Header -----------------*/
+.bar.bar-dark {
+	background: #272727;
+}
+
+/*---------------- Content -----------------*/
+.curious-blue {	color: #3498DB; }
+.b { font-weight: 700; }
+.white-pane { background: white; }
+
+ion-content {
+	background: rgb(34, 34, 34);
+}
+
+.item {
+	background: rgb(34, 34, 34);
+	color: rgb(189, 189, 189);
+	border-color: rgb(58, 58, 58);
+	padding-left: 60px;
+}
+
+.goal-text {
+	font-size: 40px;
+	line-height: 41px;
+}
+
+.goal-info-text {
+	font-size: 18px;
+	color: rgb(124, 124, 124);
+}
