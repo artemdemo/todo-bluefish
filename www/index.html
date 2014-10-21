@@ -22,34 +22,7 @@
 	</head>
 	<body ng-app="todoBluefish" ng-controller="mainCtrl">
 
-		<ion-pane>
-			<ion-header-bar class="bar-dark">
-				<!-- <button class="button button-icon icon ion-ios7-arrow-left">All goals</button> -->
-				<button class="button button-icon icon ion-navicon"></button>
-				<button class="button button-icon icon ion-ios7-plus-empty"></button>
-			</ion-header-bar>
-			
-			<ion-content>
-				<div class="padding white-pane">
-					<div class="goal-text padding-bottom">
-						<span class="curious-blue">Do</span> something right now
-					</div>
-					<div class="goal-info-text">
-						<span class="curious-blue b">6 goals</span> are waiting for you!
-					</div>
-				</div>
-				<ion-list class="goals">
-					<ion-item>
-						<radial-progress data-value="75"></radial-progress>
-						<span class="b">I want</span> to create new android app
-					</ion-item>
-					<ion-item>
-						<radial-progress data-value="25"></radial-progress>
-						<span class="b">I want</span> to make new portfolio
-					</ion-item>
-				</ion-list>
-			</ion-content>
-		</ion-pane>
+        <ion-nav-view></ion-nav-view>
 		
 	</body>
 </html>
