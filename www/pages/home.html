@@ -1,28 +1,58 @@
-<ion-pane>
-    <ion-header-bar class="bar-dark">
-        <!-- <button class="button button-icon icon ion-ios7-arrow-left">All goals</button> -->
-        <button class="button button-icon icon ion-navicon"></button>
-        <button class="button button-icon icon ion-ios7-plus-empty"></button>
-    </ion-header-bar>
+<ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content>
+        <ion-pane>
+            <ion-header-bar class="bar-dark">
+                <!-- <button class="button button-icon icon ion-ios7-arrow-left">All goals</button> -->
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+                <a href="#/task/new" class="button button-icon icon ion-ios7-plus-empty"></a>
+            </ion-header-bar>
 
-    <ion-content>
-        <div class="padding white-pane">
-            <div class="goal-text padding-bottom">
-                <span class="curious-blue">Do</span> something right now
-            </div>
-            <div class="goal-info-text">
-                <span class="curious-blue b">6 goals</span> are waiting for you!
-            </div>
-        </div>
-        <ion-list class="goals">
+            <ion-content class="tasks">
+                <div class="padding white-pane">
+                    <div class="goal-text padding-bottom">
+                        <span class="curious-blue">Do</span> something right now
+                    </div>
+                    <div class="goal-info-text">
+                        <span class="curious-blue b">6 goals</span> are waiting for you!
+                    </div>
+                </div>
+                <ion-list class="goals">
+                    <ion-item>
+                        <radial-progress data-value="75"></radial-progress>
+                        <span class="b">I want</span> to create new android app
+                    </ion-item>
+                    <ion-item>
+                        <radial-progress data-value="25"></radial-progress>
+                        <span class="b">I want</span> to make new portfolio
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-pane>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+        <ion-list>
             <ion-item>
-                <radial-progress data-value="75"></radial-progress>
-                <span class="b">I want</span> to create new android app
+                <i class="icon ion-clock"></i>
+                Active
             </ion-item>
             <ion-item>
-                <radial-progress data-value="25"></radial-progress>
-                <span class="b">I want</span> to make new portfolio
+                <i class="icon ion-filing"></i>
+                History
+            </ion-item>
+            <ion-item>
+                <i class="icon ion-arrow-graph-up-right"></i>
+                Statistic
+            </ion-item>
+            <ion-item>
+                <i class="icon ion-gear-b"></i>
+                Settings
             </ion-item>
         </ion-list>
-    </ion-content>
-</ion-pane>
+    </ion-side-menu>
+
+</ion-side-menus>
+
+

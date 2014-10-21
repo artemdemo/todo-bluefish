@@ -19,9 +19,15 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
         $stateProvider.state('home', {
             url: '/',
             templateUrl: 'pages/home.html'
+        });
+        $stateProvider.state('taskNew', {
+            url: '/task/new',
+            templateUrl: 'pages/taskNew.html'
         })
     })
 
-    .controller('mainCtrl', function( $scope, $timeout ){
-
+    .controller('mainCtrl', function( $scope, $ionicNavBarDelegate ){
+        $scope.goBack = function() {
+            window.history.back()
+        }
     });
