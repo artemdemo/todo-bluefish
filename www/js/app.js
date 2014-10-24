@@ -16,18 +16,41 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
     .config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
 
-        $stateProvider.state('home', {
-            url: '/',
-            templateUrl: 'pages/home.html'
-        });
-        $stateProvider.state('taskNew', {
-            url: '/task/new',
-            templateUrl: 'pages/taskNew.html'
-        })
-    })
-
-    .controller('mainCtrl', function( $scope, $ionicNavBarDelegate ){
-        $scope.goBack = function() {
-            window.history.back()
-        }
+        $stateProvider
+            .state('home', {
+                url: '/',
+                views: {
+                    'main-page': {
+                        templateUrl: 'pages/home.html'
+                    }
+                }
+            })
+            .state('goalNew', {
+                url: '/goal',
+                views: {
+                    'main-page': {
+                        templateUrl: 'pages/goalNew.html',
+                        controller: 'taskPageCtrl'
+                    }
+                }
+            })
+            .state('goalNew.subj',{
+                // this state is child of 'goalNew', therefor url will become '/goal/new'
+                url: '/new',
+                views: {
+                    'goal-page': {
+                        templateUrl: 'pages/goalNewFirst.html'
+                    }
+                }
+            })
+            .state('goalNew.tasks', {
+                url: '/tasks',
+                views: {
+                    'goal-page': {
+                        templateUrl: 'pages/goalNewSecond.html'
+                    }
+                }
+            });
     });
+
+

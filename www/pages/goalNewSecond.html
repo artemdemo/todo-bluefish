@@ -1,0 +1,36 @@
+<ion-view id="tasksPage">
+    <ion-header-bar class="bar-dark">
+        <button class="button button-icon icon ion-ios7-arrow-left" ng-click="goBack()">back</button>
+        <h1 class="title">Add tasks</h1>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">
+        <div class="padding white-pane">
+            <div class="goal-label"><span class="curious-blue">Now</span> break your goal into small tasks:</div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label curious-blue">1.</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label curious-blue">2.</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label curious-blue">3.</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label curious-blue">4.</span>
+                    <input type="text">
+                </label>
+            </div>
+        </div>
+        <div class="padding">
+            <div class="info muted">Step 2 of 2</div>
+            <a class="button button-block button-positive" ng-click="saveGoal()">
+                Save
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

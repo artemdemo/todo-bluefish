@@ -1,0 +1,20 @@
+<ion-view>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-icon icon ion-ios7-arrow-left" ng-click="goBack()">back</button>
+        <h1 class="title">New goal</h1>
+        <button class="button button-icon icon ion-ios7-gear-outline"></button>
+    </ion-header-bar>
+
+    <ion-content has-bouncing="false">
+        <div class="padding white-pane">
+            <div class="goal-label"><span class="curious-blue">Write</span> your next goal here:</div>
+            <textarea placeholder="Your next awesome goal"></textarea>
+        </div>
+        <div class="padding">
+            <div class="info muted">Step 1 of 2</div>
+            <a class="button button-block button-positive" href="#goal/tasks">
+                Continue
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

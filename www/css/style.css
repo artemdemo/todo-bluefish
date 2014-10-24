@@ -28,3 +28,68 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
 	font-size: 18px;
 	color: rgb(124, 124, 124);
 }
+
+.muted { color: gray; }
+
+
+/*---------------- New Goal -----------------*/
+
+#newGoalPage ion-content { background-color: #EBEFF0; }
+
+#newGoalPage textarea {
+    min-height: 100px;
+    background-color: white;
+}
+
+.goal-label {
+    margin: 5px -10px 12px -10px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    color: rgb(44, 44, 44);
+    font-size: 21px;
+}
+
+#newGoalPage .list { margin: 0 -10px; }
+
+#newGoalPage .item {
+    border-color: #ddd;
+    background-color: #fff;
+}
+
+#newGoalPage .info {
+    text-align: center;
+    margin: 0 0 5px;
+}
+
+#tasksPage .goal-label { border-bottom: 0; }
+#tasksPage .white-pane { padding-bottom: 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
