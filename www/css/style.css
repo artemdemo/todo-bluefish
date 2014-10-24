@@ -64,7 +64,13 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
 #tasksPage .goal-label { border-bottom: 0; }
 #tasksPage .white-pane { padding-bottom: 0; }
 
+#goalSettings .colors-list .item {
+    border: 0;
+    padding: 23px 25px;
+    font-size: 28px;
+}
 
+#goalSettings .colors-list .radio-icon { top: 10px; }
 
 
 

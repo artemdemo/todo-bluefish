@@ -29,7 +29,7 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
                 url: '/goal',
                 views: {
                     'main-page': {
-                        templateUrl: 'pages/goalNew.html',
+                        templateUrl: 'pages/goalPage.html',
                         controller: 'taskPageCtrl'
                     }
                 }
@@ -39,7 +39,7 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
                 url: '/new',
                 views: {
                     'goal-page': {
-                        templateUrl: 'pages/goalNewFirst.html'
+                        templateUrl: 'pages/goalPageFirst.html'
                     }
                 }
             })
@@ -47,7 +47,7 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
                 url: '/tasks',
                 views: {
                     'goal-page': {
-                        templateUrl: 'pages/goalNewSecond.html'
+                        templateUrl: 'pages/goalPageSecond.html'
                     }
                 }
             });

@@ -1,0 +1,22 @@
+<div class="modal" id="goalSettings">
+
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">Goal colors</h1>
+        <button class="button button-clear icon ion-ios7-checkmark-outline" ng-click="closeSettings()"></button>
+    </ion-header-bar>
+
+    <ion-content>
+
+        <div class="list colors-list">
+            <label class="item item-radio" style="border-left: 5px solid {{color.rgb}};" ng-repeat="color in settings.colors">
+                <input type="radio" name="group" ng-checked="color.checked" ng-click="selectColor($index)">
+                <span style="color: {{color.rgb}};">{{ color.name }}</span>
+                <i class="radio-icon ion-checkmark" style="color: {{color.rgb}};"></i>
+            </label>
+        </div>
+
+    </ion-content>
+
+
+
+</div>
