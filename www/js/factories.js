@@ -107,9 +107,6 @@ todoBluefish
             ]
         };
 
-        var goalTemplate = { id: undefined, subject: '', color: '#019CDF', timestamp: { added: '', edited: '' }, tasks: [ {name: '', done: false} ] };
-
-        var currentGoalIndex = 0;
         /**
          * currentGoal variable contain goal with processed information
          * percentage, subject with trusted html
@@ -118,9 +115,7 @@ todoBluefish
 
         return {
             getAllGoals: function() { return Goals; },
-            getGoalTemplate: function() { return goalTemplate },
             getCurrentGoal: function() { return currentGoal; }, // get back goal with processed information
-
             getTotalGoals: function(){ return Goals.list.length },
 
             getActiveGoalsNum: function() {

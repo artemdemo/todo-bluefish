@@ -140,7 +140,7 @@ todoBluefish
 
         $scope.firstTitle = $state.current.name == 'goalEdit.new' ? 'New goal' : 'Edit goal';
         $scope.secondTitle = $state.current.name == 'goalEdit.new' ? 'Add tasks' : 'Edit tasks';
-        $scope.goal = goalsFactory.getGoalTemplate();
+        $scope.goal = { id: undefined, subject: '', color: '#019CDF', timestamp: { added: '', edited: '' }, tasks: [ {name: '', done: false} ] };
 
         if ( $state.current.name == 'goalEdit.edit' ) {
             $scope.goal = goalsFactory.getCurrentGoalRaw();
