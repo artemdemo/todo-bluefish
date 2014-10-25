@@ -21,33 +21,53 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
                 url: '/',
                 views: {
                     'main-page': {
-                        templateUrl: 'pages/home.html'
+                        templateUrl: 'pages/home.html',
+                        controller: 'homeCtrl'
                     }
                 }
             })
-            .state('goalNew', {
-                url: '/goal',
+            .state('goalPage', {
+                url: '/goal/open',
                 views: {
                     'main-page': {
                         templateUrl: 'pages/goalPage.html',
-                        controller: 'taskPageCtrl'
+                        controller: 'goalPageCtrl'
                     }
                 }
             })
-            .state('goalNew.subj',{
-                // this state is child of 'goalNew', therefor url will become '/goal/new'
+            .state('goalEdit', {
+                url: '/goal',
+                views: {
+                    'main-page': {
+                        templateUrl: 'pages/goalEditPage.html',
+                        controller: 'goalEditPageCtrl'
+                    }
+                }
+            })
+            .state('goalEdit.new',{
+                // this state is child of 'goalEdit', therefor url will become '/goal/new'
                 url: '/new',
                 views: {
                     'goal-page': {
-                        templateUrl: 'pages/goalPageFirst.html'
+                        templateUrl: 'pages/goalEditPageFirst.html'
                     }
                 }
             })
-            .state('goalNew.tasks', {
+            .state('goalEdit.edit',{
+                // url: '/goal/edit/2'
+                url: '/edit/:goalID',
+                views: {
+                    'goal-page': {
+                        templateUrl: 'pages/goalEditPageFirst.html'
+                    }
+                }
+            })
+            .state('goalEdit.tasks', {
+                // url: '/goal/tasks'
                 url: '/tasks',
                 views: {
                     'goal-page': {
-                        templateUrl: 'pages/goalPageSecond.html'
+                        templateUrl: 'pages/goalEditPageSecond.html'
                     }
                 }
             });

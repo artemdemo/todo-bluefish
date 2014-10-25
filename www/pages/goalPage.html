@@ -1,5 +1,27 @@
-<ion-view id="newGoalPage">
+<ion-view id="goalPage">
 
-    <ion-nav-view name="goal-page" animation="slide-left-right"></ion-nav-view>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-icon icon ion-ios7-arrow-left" ng-click="goBack()">All goals</button>
+        <a href="#/goal/edit/{{ goalID }}" class="button button-icon icon ion-ios7-compose-outline"></a>
+    </ion-header-bar>
+
+    <ion-content class="tasks">
+        <div class="padding">
+            <div class="goal-text padding-bottom">
+                <span ng-bind-html="goal.subject"></span>
+            </div>
+        </div>
+
+        <bar-progress data-value="{{ goal.percent }}" data-color="{{ goal.color }}"></bar-progress>
+
+        <ul class="tasks">
+            <li class="item item-checkbox" ng-repeat="task in tasks">
+                <label class="checkbox">
+                    <input type="checkbox" ng-checked="task.done">
+                </label>
+                {{ task.name }}
+            </li>
+        </ul>
+    </ion-content>
 
 </ion-view>

@@ -10,11 +10,50 @@ todoBluefish
     })
 
     /**
-     * Task Page Controller
-     * I'm using this page for both open and edit tasks
+     * Home Page Controller
      */
-    .controller('taskPageCtrl', function( $scope, $ionicModal ){
-        $ionicModal.fromTemplateUrl('pages/goalPageSettings.html', function(modal) {
+    .controller('homeCtrl', function ( $scope, $sce, $state, goalsFactory ){
+        $scope.goalsList = getGoalsList();
+
+        function getGoalsList() {
+            var list = goalsFactory.getAllGoals().list, readyList = [];
+
+            for( var i = 0, lengthI = list.length; i < lengthI; i++ ){
+                // Calculate percentage of done tasks
+                var item = {}, tasks = list[i].hasOwnProperty('tasks') ? list[i].tasks : [];
+                var doneTasks = 0;
+                for( var j = 0, lengthJ = tasks.length; j < lengthJ; j++ ) {
+                    if ( tasks[j].done ) doneTasks++;
+                }
+                // Get special design for first 2 words in subject
+                var subj_arr = list[i].subject.split(/\s+/);
+                var start = '<span class="b">'+ subj_arr.splice(0,2).join(" ") +'</span> ';
+                item.subject = $sce.trustAsHtml( start + subj_arr.splice(2).join(" ") );
+                item.percent = Math.round( doneTasks / j * 100 );
+                readyList.push( item );
+            }
+
+            return readyList;
+        }
+
+        $scope.openGoal = function( goal, index ) {
+            goalsFactory.setCurrentGoal(goal, index)
+            $state.go('goalPage');
+        }
+    })
+
+    .controller('goalPageCtrl', function( $scope, goalsFactory ){
+        $scope.goal = goalsFactory.getCurrentGoal();
+        $scope.goalID = goalsFactory.getCurrentGoalIndex();
+        $scope.tasks = goalsFactory.getCurrentGoalTasks();
+    })
+
+    /**
+     * Task Page Controller
+     * I'm using this page for creating new goal and editing it
+     */
+    .controller('goalEditPageCtrl', function( $scope, $ionicModal, goalsFactory ){
+        $ionicModal.fromTemplateUrl('pages/goalEditPageSettings.html', function(modal) {
                 $scope.settingsModal = modal;
             },
             {
@@ -39,6 +78,7 @@ todoBluefish
         };
 
         $scope.openSettings = function() {
+            $scope.currentGoal = goalsFactory.getCurrentGoal();
             $scope.settingsModal.show();
         };
 

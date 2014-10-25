@@ -32,11 +32,11 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
 .muted { color: gray; }
 
 
-/*---------------- New Goal -----------------*/
+/*---------------- Goal Edit -----------------*/
 
-#newGoalPage ion-content { background-color: #EBEFF0; }
+#goalEditPage ion-content { background-color: #EBEFF0; }
 
-#newGoalPage textarea {
+#goalEditPage textarea {
     min-height: 100px;
     background-color: white;
 }
@@ -49,20 +49,39 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
     font-size: 21px;
 }
 
-#newGoalPage .list { margin: 0 -10px; }
+#goalEditPage .list { margin: 0 -10px; }
 
-#newGoalPage .item {
+#goalEditPage .item {
     border-color: #ddd;
     background-color: #fff;
 }
 
-#newGoalPage .info {
+#goalEditPage .info {
     text-align: center;
     margin: 0 0 5px;
 }
 
 #tasksPage .goal-label { border-bottom: 0; }
 #tasksPage .white-pane { padding-bottom: 0; }
+
+#tasksPage .list .input-label {
+    width: auto;
+    -webkit-box-flex: auto;
+    -webkit-flex: auto;
+    -moz-box-flex: auto;
+    -moz-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+}
+#tasksPage .list input {
+    padding-right: 15px;
+    -webkit-box-flex: auto;
+    -webkit-flex: auto;
+    -moz-box-flex: auto;
+    -moz-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+}
 
 #goalSettings .colors-list .item {
     border: 0;
@@ -73,7 +92,38 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
 #goalSettings .colors-list .radio-icon { top: 10px; }
 
 
+/*---------------- Goal Page -----------------*/
 
+#goalPage .goal-text {
+    color: white;
+}
+
+#goalPage .checkbox input:before,
+#goalPage .checkbox .checkbox-icon:before {
+    border-color: #424242;
+    background: none;
+}
+
+#goalPage .checkbox input:after,
+#goalPage .checkbox-icon:after {
+    border-color: #019CDF;
+}
+
+.bar-progress {
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    font-size: 25px;
+    position: relative;
+}
+
+.bar-progress .visual-progress {
+    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
 
 
 

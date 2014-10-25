@@ -19,13 +19,9 @@
                         </div>
                     </div>
                     <ion-list class="goals">
-                        <ion-item>
-                            <radial-progress data-value="75"></radial-progress>
-                            <span class="b">I want</span> to create new android app
-                        </ion-item>
-                        <ion-item>
-                            <radial-progress data-value="25"></radial-progress>
-                            <span class="b">I want</span> to make new portfolio
+                        <ion-item ng-repeat="goal in goalsList" ng-click="openGoal( goal, $index )">
+                            <radial-progress data-value="{{ goal.percent }}" data-color="{{ goal.color }}"></radial-progress>
+                            <span ng-bind-html="goal.subject"></span>
                         </ion-item>
                     </ion-list>
                 </ion-content>
