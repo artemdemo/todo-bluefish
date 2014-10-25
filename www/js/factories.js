@@ -6,6 +6,10 @@ todoBluefish
                 {
                     subject: 'I want to create new android app',
                     color: '#019CDF',
+                    timestamp: {
+                        added: '',
+                        edited: ''
+                    },
                     tasks: [
                         { name: 'Learn HTML5', done: true },
                         { name: 'Learn CSS5', done: true },
@@ -15,6 +19,10 @@ todoBluefish
                 {
                     subject: 'I want to make new portfolio',
                     color: '#FF3B2F',
+                    timestamp: {
+                        added: '',
+                        edited: ''
+                    },
                     tasks: [
                         { name: 'Make new design', done: true },
                         { name: 'HTML+ CSS', done: false },
@@ -23,6 +31,8 @@ todoBluefish
                 }
             ]
         };
+
+        var goalTemplate = { subject: '', color: '#019CDF', timestamp: { added: '', edited: '' }, tasks: [ {name: '', done: false} ] };
 
         var currentGoalIndex = 0;
         /**
@@ -34,6 +44,8 @@ todoBluefish
         return {
             getAllGoals: function() { return Goals; },
 
+            getGoalTemplate: function() { return goalTemplate },
+
             // get back goal with processed information
             getCurrentGoal: function() { return currentGoal; },
 
@@ -44,8 +56,12 @@ todoBluefish
                 currentGoalIndex = newGoalIndex;
             },
 
-            getCurrentGoalTasks: function() {
-                return Goals.list[currentGoalIndex].tasks;
+            getCurrentGoalTasks: function() { return Goals.list[currentGoalIndex].tasks; },
+
+            getCurrentGoalRaw: function() { return Goals.list[currentGoalIndex] },
+
+            addGoal: function( newGoal ) {
+                Goals.list.push( newGoal );
             }
         }
     });

@@ -52,7 +52,7 @@ todoBluefish
      * Task Page Controller
      * I'm using this page for creating new goal and editing it
      */
-    .controller('goalEditPageCtrl', function( $scope, $ionicModal, goalsFactory ){
+    .controller('goalEditPageCtrl', function( $scope, $ionicModal, $state, goalsFactory ){
         $ionicModal.fromTemplateUrl('pages/goalEditPageSettings.html', function(modal) {
                 $scope.settingsModal = modal;
             },
@@ -73,6 +73,16 @@ todoBluefish
             ]
         };
 
+        $scope.firstTitle = $state.current.name == 'goalEdit.new' ? 'New goal' : 'Edit goal';
+        $scope.secondTitle = $state.current.name == 'goalEdit.new' ? 'Add tasks' : 'Edit tasks';
+        $scope.goal = goalsFactory.getGoalTemplate();
+        $scope.goalID = undefined;
+
+        if ( $state.current.name == 'goalEdit.edit' ) {
+            $scope.goal = goalsFactory.getCurrentGoalRaw();
+            $scope.goalID = goalsFactory.getCurrentGoalIndex();
+        }
+
         $scope.selectColor = function( colorID ) {
           $scope.selectedColor = colorID;
         };
@@ -85,4 +95,47 @@ todoBluefish
         $scope.closeSettings = function() {
             $scope.settingsModal.hide();
         };
+
+        $scope.addTask = function() {
+            $scope.goal.tasks.push( {name: '', done: false} );
+        };
+
+        $scope.removeTask = function() {
+            if ( $scope.goal.tasks.length > 1 ) {
+                $scope.goal.color = $scope.settings.colors[$scope.selectedColor].rgb;
+                $scope.goal.tasks.pop();
+            }
+        };
+
+        $scope.saveGoal = function() {
+            if ( angular.isUndefined( $scope.goalID ) && $scope.goal.subject ) {
+                goalsFactory.addGoal( $scope.goal );
+                $state.go('home');
+            }
+        }
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
