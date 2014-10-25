@@ -2,7 +2,7 @@
 
     <ion-header-bar class="bar-dark">
         <button class="button button-icon icon ion-ios7-arrow-left" ng-click="goBack()">All goals</button>
-        <a href="#/goal/edit/{{ goalID }}" class="button button-icon icon ion-ios7-compose-outline"></a>
+        <a href="#/goal/edit/{{ goal.id }}" class="button button-icon icon ion-ios7-compose-outline"></a>
     </ion-header-bar>
 
     <ion-content class="tasks">
@@ -12,12 +12,15 @@
             </div>
         </div>
 
-        <bar-progress data-value="{{ goal.percent }}" data-color="{{ goal.color }}"></bar-progress>
+        <div class="bar-progress" style="background-color: {{ goal.color }};">
+            <div class="visual-progress" style="width: {{ 100 - goal.percent }}%;"></div>
+            <span class="progress-value">{{ goal.percent }}%</span>
+        </div>
 
         <ul class="tasks">
-            <li class="item item-checkbox" ng-repeat="task in tasks">
+            <li class="item item-checkbox" ng-repeat="task in tasks" ng-click="calculateProgress()">
                 <label class="checkbox">
-                    <input type="checkbox" ng-checked="task.done">
+                    <input type="checkbox" ng-model="task.done" style="border-color: {{ goal.color }}">
                 </label>
                 {{ task.name }}
             </li>

@@ -15,11 +15,11 @@
                             <span class="curious-blue">Do</span> something right now
                         </div>
                         <div class="goal-info-text">
-                            <span class="curious-blue b">6 goals</span> are waiting for you!
+                            <span class="curious-blue b">{{ activeGoalsNum }} goals</span> are waiting for you!
                         </div>
                     </div>
                     <ion-list class="goals">
-                        <ion-item ng-repeat="goal in goalsList" ng-click="openGoal( goal, $index )">
+                        <ion-item ng-repeat="goal in goalsList" ng-click="openGoal( goal )">
                             <radial-progress data-value="{{ goal.percent }}" data-color="{{ goal.color }}"></radial-progress>
                             <span ng-bind-html="goal.subject"></span>
                         </ion-item>
@@ -30,7 +30,8 @@
 
         <!-- Left menu -->
         <ion-side-menu side="left">
-            <ion-list>
+            <ion-list id="side-menu-list">
+                <!--
                 <ion-item>
                     <i class="icon ion-clock"></i>
                     Active
@@ -40,13 +41,20 @@
                     History
                 </ion-item>
                 <ion-item>
-                    <i class="icon ion-arrow-graph-up-right"></i>
-                    Statistic
-                </ion-item>
-                <ion-item>
                     <i class="icon ion-gear-b"></i>
                     Settings
                 </ion-item>
+                -->
+
+                <a href="#/archive" class="item">
+                    <i class="icon ion-clock"></i>
+                    Active
+                </a>
+                <a href="#/statistic" class="item">
+                    <i class="icon ion-arrow-graph-up-right"></i>
+                    Statistic
+                </a>
+
             </ion-list>
         </ion-side-menu>
 

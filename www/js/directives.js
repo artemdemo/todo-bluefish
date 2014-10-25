@@ -11,6 +11,7 @@ todoBluefish
                 $input.knob({
                     'readOnly': true,
                     'bgColor': 'rgb(40, 40, 40)',
+                    'fgColor': attr.color,
                     'width': '10px',
                     'thickness': '.2',
                     'displayInput': false
@@ -24,18 +25,6 @@ todoBluefish
                     'padding': '13px 10px',
                     'background': 'rgb(27, 27, 27)'
                 });
-            }
-        }
-    })
-
-    .directive('barProgress', function(){
-        return {
-            restrict: 'E',
-            templateUrl: 'tpl-widgets/barProgress.html',
-            scope: {},
-            link: function(scope, el, attr) {
-                scope.percent = attr.value ? attr.value : 0;
-                scope.color = attr.color ? attr.color : '#019CDF';
             }
         }
     });
