@@ -8,6 +8,8 @@ todoBluefish
             link: function(scope, el, attr) {
                 var $input = $(el[0]).find('input');
                 $input.val( attr.value );
+                // first I remove all styling from the div.radial-progress in case it will make problem with rerendering knob
+                $(el[0]).find('.radial-progress').removeAttr('style');
                 $input.knob({
                     'readOnly': true,
                     'bgColor': 'rgb(40, 40, 40)',

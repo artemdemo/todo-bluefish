@@ -71,7 +71,7 @@ todoBluefish
                         { name: 'Decide what color', done: true },
                         { name: 'Decide what firm', done: true },
                         { name: 'Decide when', done: false },
-                        { name: 'Decide why', done: false },
+                        { name: 'Decide why', done: false }
                     ]
                 },
                 {
@@ -87,7 +87,7 @@ todoBluefish
                         { name: 'Decide what color', done: true },
                         { name: 'Decide what firm', done: true },
                         { name: 'Decide when', done: true },
-                        { name: 'Decide why', done: false },
+                        { name: 'Decide why', done: false }
                     ]
                 },
                 {
