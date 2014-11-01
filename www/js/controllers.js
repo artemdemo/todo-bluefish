@@ -3,7 +3,9 @@ todoBluefish
      * Main Controller
      * Top controller of whole application
      */
-    .controller('mainCtrl', function( $scope ){
+    .controller('mainCtrl', function( $scope, goalsFactory ){
+        goalsFactory.loadGoals();
+
         $scope.goBack = function() {
             window.history.back()
         }
@@ -47,6 +49,9 @@ todoBluefish
             goalsFactory.setCurrentGoal( goal );
             $state.go('goalPage');
         }
+
+        // Save all goals
+        goalsFactory.saveGoals();
     })
 
     /**
