@@ -29,12 +29,7 @@ todoBluefish
             getActiveGoalsNum: function() {
                 var activeGoals = 0;
                 for( var i = 0, lengthI = Goals.list.length; i < lengthI; i++ ){
-                    var tasks = Goals.list[i].hasOwnProperty('tasks') ? Goals.list[i].tasks : [];
-                    var doneTasks = 0;
-                    for( var j = 0, lengthJ = tasks.length; j < lengthJ; j++ ) {
-                        if ( tasks[j].done ) doneTasks++;
-                    }
-                    if ( doneTasks != j ) activeGoals++;
+                    if ( ! this.testIfGoalIsCompleted( Goals.list[i] ) ) activeGoals++;
                 }
                 return activeGoals;
             },
@@ -42,12 +37,7 @@ todoBluefish
             getDoneGoalsNum: function() {
                 var doneGoals = 0;
                 for( var i = 0, lengthI = Goals.list.length; i < lengthI; i++ ){
-                    var tasks = Goals.list[i].hasOwnProperty('tasks') ? Goals.list[i].tasks : [];
-                    var doneTasks = 0;
-                    for( var j = 0, lengthJ = tasks.length; j < lengthJ; j++ ) {
-                        if ( tasks[j].done ) doneTasks++;
-                    }
-                    if ( doneTasks == j ) doneGoals++;
+                    if ( this.testIfGoalIsCompleted( Goals.list[i] ) ) doneGoals++;
                 }
                 return doneGoals;
             },
@@ -62,6 +52,50 @@ todoBluefish
             },
 
             addGoal: function( newGoal ) { Goals.list.push( newGoal ); },
+
+            getGoalWithMostTasks: function() {
+                var goal = { id: '', tasks: 0 };
+                for( var i = 0, lengthI = Goals.list.length; i < lengthI; i++ ){
+                    var tasks = Goals.list[i].hasOwnProperty('tasks') ? Goals.list[i].tasks : [];
+                    if ( goal.tasks <= tasks.length ) {
+                        goal.id = i;
+                        goal.tasks = tasks.length;
+                    }
+                }
+                return Goals.list[ goal.id ];
+            },
+
+            testIfGoalIsCompleted: function( goal ) {
+                var doneTasks = 0;
+                for( var j = 0, lengthJ = goal.tasks.length; j < lengthJ; j++ ) {
+                    if ( goal.tasks[j].done ) doneTasks++;
+                }
+                return doneTasks == goal.tasks.length;
+            },
+
+            getOldestGoal: function() {
+                var goal = { id: '', date: '9999-00-00 00:00:00' };
+                for( var i = 0, lengthI = Goals.list.length; i < lengthI; i++ ){
+                    if ( goal.date >= Goals.list[i].timestamp.added &&
+                            ! this.testIfGoalIsCompleted( Goals.list[i] ) ) {
+                        goal.id = i;
+                        goal.date = Goals.list[i].timestamp.added;
+                    }
+                }
+                return Goals.list[ goal.id ];
+            },
+
+            getNewestGoal: function() {
+                var goal = { id: '', date: '0000-00-00 00:00:00' };
+                for( var i = 0, lengthI = Goals.list.length; i < lengthI; i++ ){
+                    if ( goal.date <= Goals.list[i].timestamp.added &&
+                            ! this.testIfGoalIsCompleted( Goals.list[i] ) ) {
+                        goal.id = i;
+                        goal.date = Goals.list[i].timestamp.added;
+                    }
+                }
+                return Goals.list[ goal.id ];
+            },
 
             /*
              * Load template object of goals
@@ -128,7 +162,7 @@ todoBluefish
                             "id": "5",
                             "subject": "I want to buy new car",
                             "color": "#F7385D",
-                            "timestam": {
+                            "timestamp": {
                                 "added": "2014-07-22 12:03:56",
                                 "edited": "2014-07-24 16:12:01"
                             },
@@ -145,7 +179,7 @@ todoBluefish
                             "subject": "I want brand new laptop",
                             "color": "#43B25A",
                             "timestamp": {
-                                "added": "2014-06-22 12:03:56",
+                                "added": "2000-06-22 12:03:56",
                                 "edited": "2014-06-24 16:12:01"
                             },
                             "tasks": [
@@ -161,7 +195,7 @@ todoBluefish
                             "subject": "Some completed goal",
                             "color": "#43B25A",
                             "timestamp": {
-                                "added": "2014-08-09 12:03:56",
+                                "added": "1999-08-09 12:03:56",
                                 "edited": "2014-08-10 16:12:01"
                             },
                             "tasks": [

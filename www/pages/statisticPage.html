@@ -10,6 +10,17 @@
             <span class="curious-blue">You</span> completed
             <span class="curious-blue">{{ doneGoals }} goals</span> out of {{ totalGoals }}
         </div>
+        <div class="goal-info-text padding" ng-click="openGoal(goalWithMostTasks)">
+            Your goal
+            <span style="font-weight: 700; color: {{ goalWithMostTasks.color }}">{{ goalWithMostTasks.subject }}</span>
+            has the most tasks - {{ goalWithMostTasks.tasks.length }}.
+        </div>
+        <div class="goal-arch-text padding" ng-click="openGoal(oldestGoal)">
+            Your oldest goal is <span style="font-weight: 700; color: {{ oldestGoal.color }}">{{ oldestGoal.subject }}</span>
+        </div>
+        <div class="goal-arch-text padding" ng-click="openGoal(newestGoal)">
+            Your newest goal is <span style="font-weight: 700; color: {{ newestGoal.color }}">{{ newestGoal.subject }}</span>
+        </div>
     </ion-content>
 
 </ion-view>

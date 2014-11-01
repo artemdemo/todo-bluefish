@@ -57,9 +57,17 @@ todoBluefish
     /**
      * Statistics Page
      */
-    .controller('statisticCtrl', function( $scope, goalsFactory ){
+    .controller('statisticCtrl', function( $scope, $state, goalsFactory ){
         $scope.totalGoals = goalsFactory.getTotalGoals();
         $scope.doneGoals = goalsFactory.getDoneGoalsNum();
+        $scope.goalWithMostTasks = goalsFactory.getGoalWithMostTasks();
+        $scope.oldestGoal = goalsFactory.getOldestGoal();
+        $scope.newestGoal = goalsFactory.getNewestGoal();
+
+        $scope.openGoal = function( goal ) {
+            goalsFactory.setCurrentGoal( goal );
+            $state.go('goalPage');
+        }
     })
 
     /**
@@ -115,7 +123,9 @@ todoBluefish
                 if ( $scope.tasks[i].done ) doneTasks++;
             }
             $scope.goal.percent = Math.round( doneTasks / i * 100 );
-        }
+        };
+
+        $scope.calculateProgress();
     })
 
     /**
@@ -173,6 +183,17 @@ todoBluefish
 
         $scope.closeSettings = function() {
             $scope.settingsModal.hide();
+        };
+
+        $scope.gotoTasksPage = function() {
+            if ( $scope.goal.subject ) $state.go('goalEdit.tasks');
+            else {
+                var $textareaSubj = $('#goalEditPage').find('textarea');
+                $textareaSubj.addClass('alert');
+                setTimeout(function(){
+                    $textareaSubj.removeClass('alert');
+                },1500);
+            }
         };
 
         $scope.addTask = function() {
