@@ -8,7 +8,9 @@ todoBluefish
 
         $scope.goBack = function() {
             window.history.back()
-        }
+        };
+
+
     })
 
     /**
@@ -48,7 +50,7 @@ todoBluefish
         $scope.openGoal = function( goal ) {
             goalsFactory.setCurrentGoal( goal );
             $state.go('goalPage');
-        }
+        };
 
         // Save all goals
         goalsFactory.saveGoals();
@@ -219,6 +221,14 @@ todoBluefish
             $state.go('home');
         }
     })
+
+	.controller('introCtrl', function( $scope, $state ){
+
+		$scope.goToHomePage = function() {
+			console.log(  );
+			$state.go('home');
+		};
+	});
 
 
 

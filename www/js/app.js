@@ -17,6 +17,15 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
+	        .state('intro',{
+		        url: '/intro',
+		        views: {
+			        'main-page': {
+				        templateUrl: 'pages/intro.html',
+				        controller: 'introCtrl'
+			        }
+		        }
+	        })
             .state('home', {
                 url: '/',
                 views: {

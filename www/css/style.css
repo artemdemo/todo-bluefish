@@ -41,6 +41,21 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
 #side-menu-list .item { color: rgb(189, 189, 189); }
 #side-menu-list .item .icon { margin-right: 8px; }
 
+.checkbox input:before,
+.checkbox .checkbox-icon:before {
+    border-color: #424242;
+    background: none !important;
+}
+
+.checkbox input {
+    border-color: #3498DB;
+}
+
+.checkbox input:after,
+.checkbox-icon:after {
+    border-color: inherit;
+}
+
 
 /*---------------- Goal Edit -----------------*/
 
@@ -125,17 +140,6 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
     color: white;
 }
 
-#goalPage .checkbox input:before,
-#goalPage .checkbox .checkbox-icon:before {
-    border-color: #424242;
-    background: none;
-}
-
-#goalPage .checkbox input:after,
-#goalPage .checkbox-icon:after {
-    border-color: inherit;
-}
-
 .bar-progress {
     text-align: left;
     color: white;
@@ -152,8 +156,50 @@ ion-side-menu.menu { background-color: rgb(30, 30, 30); }
     bottom: 0;
 }
 
+/*---------------- Intro Page -----------------*/
 
+#checkbox-logo {
+    width: 120px;
+    height: 120px;
+    margin: 30px auto;
+    position: relative;
+    border-radius: 100%;
+    border: 3px solid rgb(66, 66, 66);
+}
 
+#checkbox-logo:after {
+    -webkit-transition: opacity 0.05s ease-in-out;
+    -moz-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 30%;
+    left: 19%;
+    display: block;
+    width: 65%;
+    height: 38%;
+    border: 8px solid #3498DB;
+    border-top: 0;
+    border-right: 0;
+    content: ' ';
+}
+
+#checkbox-logo-wrap {
+    border-bottom: 3px solid #3498DB;
+    margin-bottom: 11px;
+}
+
+#introPage .goal-text {
+    color: white;
+}
+
+#introPage .list .item-checkbox {
+    border: 0;
+    padding: 2px 0 0 56px;
+    margin-top: 20px;
+}
 
 
 
