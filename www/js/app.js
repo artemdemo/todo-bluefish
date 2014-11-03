@@ -18,7 +18,7 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
 
         $stateProvider
 	        .state('intro',{
-		        url: '/intro',
+		        url: '/',
 		        views: {
 			        'main-page': {
 				        templateUrl: 'pages/intro.html',
@@ -27,7 +27,7 @@ var todoBluefish = angular.module('todoBluefish', ['ionic'])
 		        }
 	        })
             .state('home', {
-                url: '/',
+                url: '/home',
                 views: {
                     'main-page': {
                         templateUrl: 'pages/home.html',
